@@ -1,0 +1,483 @@
+```html
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Sayang 💚</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Quicksand:wght@500;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+:root{
+    --bg-color:#dcedc8;
+    --primary-green:#1b5e20;
+    --soft-green:#f1f8e9;
+    --accent-green:#a5d6a7;
+    --white:#ffffff;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    background-color:var(--bg-color);
+    background-image:radial-gradient(var(--accent-green) 12%, transparent 12%);
+    background-size:30px 30px;
+    font-family:'Quicksand', sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+    color:var(--primary-green);
+}
+
+/* CICAK */
+
+.decor{
+    position:fixed;
+    pointer-events:none;
+    z-index:1;
+    opacity:0.6;
+    animation:crawlAnim 8s infinite linear;
+    font-size:30px;
+}
+
+@keyframes crawlAnim{
+    0%{transform:translate(0,0) rotate(0deg);}
+    25%{transform:translate(10px,-10px) rotate(5deg);}
+    50%{transform:translate(20px,0) rotate(0deg);}
+    75%{transform:translate(10px,10px) rotate(-5deg);}
+    100%{transform:translate(0,0) rotate(0deg);}
+}
+
+/* SLIDER */
+
+.main-wrapper{
+    display:flex;
+    width:300vw;
+    min-height:100vh;
+    transition:transform 0.8s cubic-bezier(0.77,0,0.175,1);
+    position:relative;
+    z-index:10;
+}
+
+.page{
+    width:100vw;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+    position:relative;
+    flex-shrink:0;
+}
+
+/* POLAROID */
+
+.polaroid-frame{
+    background-color:var(--white);
+    padding:15px 15px 35px 15px;
+    border-radius:2px;
+    box-shadow:0 15px 30px rgba(0,0,0,0.15);
+    transform:rotate(-3deg);
+    margin-bottom:-30px;
+    z-index:15;
+    transition:transform 0.3s ease;
+}
+
+.polaroid-frame:hover{
+    transform:rotate(0deg) scale(1.02);
+}
+
+.polaroid-photo{
+    width:250px;
+    height:250px;
+    overflow:hidden;
+    border:1px solid #ddd;
+    background-color:#eee;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.polaroid-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* ENVELOPE */
+
+.envelope-container{
+    text-align:center;
+    cursor:pointer;
+    transition:transform 0.3s ease;
+    z-index:10;
+}
+
+.envelope-container:hover{
+    transform:scale(1.05);
+}
+
+.envelope-icon{
+    font-size:140px;
+    color:var(--white);
+    filter:drop-shadow(0 10px 25px rgba(0,0,0,0.1));
+    margin-bottom:15px;
+    animation:bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
+
+.instruction-tag{
+    background:var(--white);
+    padding:10px 30px;
+    border-radius:50px;
+    font-family:'Fredoka', sans-serif;
+    font-size:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.06);
+    border:2px dashed var(--accent-green);
+    display:inline-block;
+}
+
+/* CARD */
+
+.scrapbook-card{
+    width:100%;
+    max-width:680px;
+    background:var(--soft-green);
+    padding:35px;
+    border-radius:20px;
+    border:10px solid var(--white);
+    box-shadow:0 20px 45px rgba(0,0,0,0.08);
+    position:relative;
+    z-index:20;
+    display:flex;
+    flex-direction:column;
+}
+
+.washi-tape{
+    position:absolute;
+    width:130px;
+    height:32px;
+    background:rgba(165,214,167,0.7);
+    top:-16px;
+    left:50%;
+    transform:translateX(-50%) rotate(-1deg);
+}
+
+.message-box{
+    background:var(--white);
+    padding:30px;
+    border-radius:12px;
+    box-shadow:inset 0 0 10px rgba(0,0,0,0.01);
+    margin-bottom:25px;
+}
+
+.message-box p{
+    font-size:18px;
+    line-height:1.8;
+    font-weight:700;
+    color:#2e7d32;
+    text-align:justify;
+}
+
+/* FOTO */
+
+.photo-dump{
+    position:relative;
+    height:330px;
+    margin-bottom:25px;
+}
+
+.photo-dump img{
+    position:absolute;
+    width:180px;
+    height:180px;
+    object-fit:cover;
+    border-radius:18px;
+    border:6px solid white;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* PAGE 2 */
+
+.page:nth-child(2) .photo-dump img:nth-child(1){
+    left:30px;
+    top:0;
+    transform:rotate(-8deg);
+}
+
+.page:nth-child(2) .photo-dump img:nth-child(2){
+    right:40px;
+    top:130px;
+    transform:rotate(8deg);
+}
+
+/* PAGE 3 */
+
+.page:nth-child(3) .photo-dump{
+    margin-top:30px;
+}
+
+.page:nth-child(3) .photo-dump img:nth-child(1){
+    left:40px;
+    top:20px;
+    transform:rotate(-10deg);
+}
+
+.page:nth-child(3) .photo-dump img:nth-child(2){
+    right:30px;
+    top:150px;
+    transform:rotate(10deg);
+}
+
+/* BUTTON */
+
+.btn-center{
+    text-align:center;
+    width:100%;
+}
+
+.btn-next{
+    background:var(--primary-green);
+    color:var(--white);
+    border:none;
+    padding:14px 45px;
+    border-radius:50px;
+    font-family:'Fredoka', sans-serif;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* DECOR */
+
+.card-decor{
+    position:absolute;
+    font-size:45px;
+    z-index:25;
+}
+
+.top-star{
+    top:-25px;
+    right:-25px;
+}
+
+.bottom-dino{
+    bottom:-20px;
+    left:-25px;
+    transform:rotate(10deg);
+}
+
+.bg-watermark{
+    position:absolute;
+    font-family:'Fredoka', sans-serif;
+    font-size:100px;
+    opacity:0.03;
+    font-weight:bold;
+    white-space:nowrap;
+    z-index:-1;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="leaf-layer"></div>
+
+<div class="main-wrapper" id="pageSlider">
+
+<!-- PAGE 1 -->
+
+<div class="page">
+
+<div class="bg-watermark" style="top:10%; left:-5%;">
+FOR MY FAV GIRL
+</div>
+
+<div class="polaroid-frame">
+
+<div class="polaroid-photo">
+<img src="gambar_gf.jpg.jpeg" alt="">
+</div>
+
+</div>
+
+<div class="envelope-container" onclick="changePage(1)">
+
+<div class="envelope-icon">
+<i class="fa-solid fa-envelope-open-text"></i>
+</div>
+
+<div class="instruction-tag">
+olaa, tekan suratt ni sayanggg 💚
+</div>
+
+</div>
+
+</div>
+
+<!-- PAGE 2 -->
+
+<div class="page">
+
+<div class="scrapbook-card">
+
+<div class="washi-tape"></div>
+
+<div class="card-decor top-star">⭐</div>
+
+<div class="message-box">
+
+<div class="photo-dump">
+<img src="foto1.jpg.jpeg">
+<img src="foto2.jpeg">
+</div>
+
+<p>
+
+Happy birthday sayanggg ❤️
+<br><br>
+
+olaa hppy birthdayy sayangkuuu, cintakuuu, duniakuuu, my babyyy yang paling comelll 💚🦕
+<br><br>
+
+Semoga semua cita-cita yang kmu impikan dapat tercapai tau sayangg. Saya tahu kmuu kuat dan usaha sungguh-sungguh untuk semua benda yang kmuu nak capaiii. Jadi jangan pernah putus asa okayy? Saya percaya dekat kmuu sangattt ii ❤️
+<br><br>
+
+Teruskan bersemangat yaa sayangg, walau susah macam mana pun saya tetap akan support kmuu dari belakangg. Saya nak tengok kmuu berjaya, happy selalu dan senyum banyak ii macam sekarang niii 😭💚
+<br><br>
+
+Saya mintak maaf kalau selama ni ada buat kmuu sedihh, terasa hati atau kecewa dengan saya 😔 Tapi percayalahh saya betul ii sayang kat kmuu dan saya nak hubungan kita ni kekall lamaa sampai bila ii 🌿❤️
+<br><br>
+
+Saya harap lepas ni kita banyak happy happy sama-sama, kurang gaduh ii, kurang nangis ii heheh. Saya nak banyak kenangan dengan kmuu lagiii tauu 😭💚
+<br><br>
+
+semoga hubungan kita kekall lamaa yaa sayangg 🌿
+<br><br>
+
+I loveeeeeee youuuuuu sooooo muchhhhh sayanggggkuuuhhh 💚
+
+</p>
+
+</div>
+
+<div class="btn-center">
+<button class="btn-next" onclick="changePage(2)">
+Ada Lagi Satu... ➔
+</button>
+</div>
+
+</div>
+
+</div>
+
+<!-- PAGE 3 -->
+
+<div class="page">
+
+<div class="scrapbook-card">
+
+<div class="washi-tape"></div>
+
+<div class="card-decor bottom-dino">🦕</div>
+
+<div class="message-box" style="border-left:5px solid var(--accent-green); padding:25px 30px;">
+
+<div class="photo-dump">
+<img src="foto3.jpeg">
+<img src="foto4.jpeg">
+</div>
+
+<p style="font-family:'Caveat', cursive; font-size:25px; text-align:center; color:#1b5e20;">
+
+Hari ini hari paling special untuk orang paling special dalam hidup saya. hrmmm rinduu kamuu sangatt tauu,mintaa maaf ya syggg sbb xda disisi kmuu time hari paling pentingg niii 🦎💚
+<br><br>
+
+Kalau bolehh saya nak sangat ada sebelah kmuu sekarang, sambut sama-sama birthday kmuu, tgok kmuu happyy, dengar suara kmuu gelakk tuu hrmmm 😭❤️ Tapi walau jauh macam mana pun saya tetap ingat kat kmuu tiap masa tauu sayangg.
+<br><br>
+
+Saya harap kmuu sentiasa bahagiaa, sihattt dan kuat dalam apa ii ja yang kmuu buatt tauu. Jangan penat sangattt, jangan pendam sorang ii kalau ada masalahh okayy sebab saya sentiasa ada kat sini untuk dengar cerita kmuu, teman kmuu, jaga kmuu walaupun kadang ii saya annoying sikittt heheh 😭💚
+<br><br>
+
+Terima kasih sebab hadir dalam hidup sayaa. Terima kasih sebab layan perangai saya, sabar dengan saya, stay dengan saya sampai sekarang niii. Saya bersyukur sangat dapat kenal dan ada kmuu dalam hidup saya 😔❤️
+<br><br>
+
+Kadang ii saya asyik fikir pasal kmuu jaa tauu, bila bangun tidur ingat kmuu, sebelum tidur pun ingat kmuu jugakk hrmmm rinduuu sangattt dekat sayanggg 😭🌿
+<br><br>
+
+sayaa sayaaaangg kmuuu sangtt ii and rinduuu kamuu hrmm, loveyoouuuu sygggkuuu ❤️💚
+
+</p>
+
+</div>
+
+<div class="btn-center">
+<button class="btn-next" onclick="changePage(0)">
+↺ Baca Semula
+</button>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function changePage(index){
+const slider=document.getElementById('pageSlider');
+slider.style.transform=`translateX(-${index * 100}vw)`;
+}
+
+function spawnDecorations(){
+
+const layer=document.getElementById('leaf-layer');
+
+for(let i=0;i<20;i++){
+
+const element=document.createElement('div');
+
+element.className='decor';
+
+element.innerHTML='🦎';
+
+element.style.left=Math.random()*100+'vw';
+element.style.top=Math.random()*100+'vh';
+
+element.style.fontSize=(Math.random()*20+25)+'px';
+
+element.style.animationDelay=Math.random()*5+'s';
+
+element.style.animationDuration=(Math.random()*5+5)+'s';
+
+layer.appendChild(element);
+}
+}
+
+window.onload=spawnDecorations;
+
+</script>
+
+</body>
+</html>
+```
